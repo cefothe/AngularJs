@@ -4,9 +4,28 @@
 		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />	
 	</head>
 	<body>
-		<script type="text/javascript" src="angular.min.js"></script>
+		<div ng-controller="StoreController as store">
+			<h1>{{store.product.name}}</h1>
+			<h1>{{store.product.price}}</h1>
+			<h1>{{store.product.description}}</h1>
+		</div>
+
+	  	<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript" src="app.js"></script>
-		<p> I am {{4+6}} </p>
-		<p>{{"hello" + "you"}}</p>
+		<script type="text/javascript">
+		(function(){
+			var app = angular.module('store',[]);
+			app.controller('StoreController', function(){
+					this.product=gen;
+				});
+
+			var gen= {
+					name : 'Dobecahedron',
+					price: 2.95,
+					description: ' This is first description'	
+			}
+
+		})();
+		</script>
 	</body>
 </html>
